@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6DB1B9"
+    tools:context=".UserActivity">
+
+    <Button
+        android:id="@+id/button_Medication"
+        android:layout_width="205dp"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        android:fontFamily="cursive"
+        android:text="My Medication"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:backgroundTint="#CFCFCF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_reminder"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="-Your faithful medical assisant-"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginLeft="122dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginRight="122dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/logo_slogan" />
+
+    <Button
+        android:id="@+id/button_reminder"
+        android:layout_width="205dp"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        android:fontFamily="cursive"
+        android:text="My Reminder"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:backgroundTint="#CFCFCF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_Medication"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6DB1B9"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/Widget.AppCompat.PopupMenu.Overflow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
