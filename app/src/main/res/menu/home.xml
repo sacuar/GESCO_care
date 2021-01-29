@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:checkableBehavior="single"
+        android:menuCategory="alternative">
+        <item
+            android:id="@+id/nav_personaldata"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Personal data" />
+        <item
+            android:id="@+id/nav_Customerserv"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Customer service" />
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Message" />
+        <item
+            android:id="@+id/nav_calldoctor"
+            android:title="Call family doctor" />
+        <item
+            android:id="@+id/nav_emergcall"
+            android:title="Emergency call" />
+        <item
+            android:id="@+id/nav_signout"
+            android:title="Sign out" />
+    </group>
+
+</menu>
