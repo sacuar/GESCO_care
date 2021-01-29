@@ -8,16 +8,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class UserActivity extends AppCompatActivity {
+public class User_PatientActivity extends AppCompatActivity {
 
 
 
@@ -40,13 +38,13 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_user_patient);
 
         Button button_reminds = (Button) findViewById(R.id.button_reminder);
         button_reminds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this, ReminderActivity.class);
+                Intent intent = new Intent(User_PatientActivity.this, ReminderActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,14 +53,23 @@ public class UserActivity extends AppCompatActivity {
         button_medi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this, MedicationActivity.class);
+                Intent intent = new Intent(User_PatientActivity.this, MedicationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button_testalarm = (Button) findViewById(R.id.button_testalarm);
+        button_testalarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_PatientActivity.this, TestAlarmActivity.class);
                 startActivity(intent);
             }
         });
 
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_patient);
         setSupportActionBar(toolbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBar actionBar = getSupportActionBar();
@@ -72,7 +79,7 @@ public class UserActivity extends AppCompatActivity {
         }
 
 
-        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navView = (NavigationView) findViewById(R.id.nav_view_patient);
 
 
 
@@ -84,12 +91,12 @@ public class UserActivity extends AppCompatActivity {
 
                 int id = item.getItemId();
                 if(id==R.id.nav_personaldata){
-                Intent intent = new Intent(UserActivity.this, PersonalData.class);
+                Intent intent = new Intent(User_PatientActivity.this, PersonalData.class);
                 startActivity(intent);
                 return true;
                 }
                 else if(id==R.id.nav_message){
-                    Intent intent = new Intent(UserActivity.this, RegistrationActivity.class);
+                    Intent intent = new Intent(User_PatientActivity.this, RegistrationActivity.class);
                     startActivity(intent);
                     return true;
                 }

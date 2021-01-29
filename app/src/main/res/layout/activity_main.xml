@@ -29,6 +29,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:text="-Your faithful medical assisant-"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -51,7 +52,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_slogan" />
+        app:srcCompat="@mipmap/ic_logo" />
 
     <Button
         android:id="@+id/button_login"
