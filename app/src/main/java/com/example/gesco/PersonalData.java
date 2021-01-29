@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.List;
+import com.example.gesco.outputtypes.APIError;
+import com.example.gesco.outputtypes.MeResponse;
+import com.example.gesco.utils.ErrorHandler;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,32 +23,33 @@ public class PersonalData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_data);
         textViewResult = findViewById(R.id.text_view_result);
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .baseUrl("https://gesco-backend.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<List<Post>> call = jsonPlaceHolderApi.getPosts();
-        call.enqueue(new Callback<List<Post>>() {
+        DatabaseAPI dbApi = retrofit.create(DatabaseAPI.class);
+
+        Call<MeResponse> meCall = dbApi.me("1611916993321");
+
+        meCall.enqueue(new Callback<MeResponse>() {
             @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+            public void onResponse(Call<MeResponse> call, Response<MeResponse> response) {
                 if (!response.isSuccessful()) {
-                    textViewResult.setText("Code: " + response.code());
-                    return;
-                }
-                List<Post> posts = response.body();
-                for (Post post : posts) {
-                    String content = "";
-                    content += "ID: " + post.getId() + "\n";
-                    content += "name: " + post.getName() + "\n";
-                    content += "User name: " + post.getUsername() + "\n";
-                    content += "email: " + post.getEmail() + "\n";
-                    content += "Address: " + post.getText() + "\n\n";
-                    textViewResult.append(content);
+                    APIError err = ErrorHandler.parseError(response);
+                    textViewResult.setText(err.message());
+                } else {
+                    MeResponse userData = response.body();
+                    textViewResult.setText(
+                            "Id: " + userData.getId() + '\n' +
+                                    "Username: " + userData.getUsername() + '\n' +
+                                    "Email: " + userData.getEmail()
+                    );
                 }
             }
+
             @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
+            public void onFailure(Call<MeResponse> call, Throwable t) {
                 textViewResult.setText(t.getMessage());
             }
         });
