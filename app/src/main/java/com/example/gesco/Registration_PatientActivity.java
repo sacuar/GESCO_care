@@ -7,32 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class Registration_PatientActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registration__patient);
 
-
-        Button button1 = (Button) findViewById(R.id.button_login);
+        Button button1 = (Button) findViewById(R.id.button5);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, Login_SelectActivity.class);
+                Intent intent = new Intent(Registration_PatientActivity.this, Registration_FinishedPatientActivity.class);
                 startActivity(intent);
             }
         });
 
-        Button button2 = (Button) findViewById(R.id.button_Registration);
-        button2.setOnClickListener(new View.OnClickListener() {
+        Button button_back = (Button) findViewById(R.id.button_back_pa);
+        button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, Registration_SelectActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
+
     }
 }

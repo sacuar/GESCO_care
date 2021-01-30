@@ -1,9 +1,5 @@
 package com.example.gesco;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,25 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.gesco.inputtypes.LoginRequest;
-import com.example.gesco.inputtypes.RegisterRequest;
-import com.example.gesco.outputtypes.APIError;
-import com.example.gesco.outputtypes.LoginResponse;
-import com.example.gesco.outputtypes.RegisterResponse;
-import com.example.gesco.utils.ErrorHandler;
+import androidx.appcompat.app.AppCompatActivity;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class LoginActivity extends AppCompatActivity {
+public class Login_PatientActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_patient);
 
 
 
@@ -43,11 +28,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        Button button_back = (Button) findViewById(R.id.button_back_patient);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         Button buttonLogin = (Button) findViewById(R.id.button_login2);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                Intent intent = new Intent(Login_PatientActivity.this, User_PatientActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,5 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 //                // display error message somewhere
 //            }
 //        });
+
     }
 }

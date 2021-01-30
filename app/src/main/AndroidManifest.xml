@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_logo_white"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".User_DoctorActivity"></activity>
+        <activity android:name=".Registration_FinishedDoctorActivity"></activity>
+        <activity android:name=".Registration_FinishedPatientActivity" />
+        <activity android:name=".Registration_DoctorActivity" />
+        <activity android:name=".Registration_PatientActivity" />
+        <activity android:name=".Registration_SelectActivity" />
+        <activity android:name=".User_DoctorActivity" />
         <activity android:name=".Login_DoctorActivity" />
         <activity android:name=".TestAlarmActivity" />
         <activity android:name=".Login_SelectActivity" />
