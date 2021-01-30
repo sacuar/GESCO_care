@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -31,6 +32,7 @@ public class UserActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
+
                 break;
             default:
         }
@@ -68,7 +70,7 @@ public class UserActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_launcher_foreground);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
         }
 
 
@@ -88,13 +90,58 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
                 }
+                //redirects to email
                 else if(id==R.id.nav_message){
-                    Intent intent = new Intent(UserActivity.this, RegistrationActivity.class);
+                    //Intent intent = new Intent(UserActivity.this, RegistrationActivity.class);
+                   // startActivity(intent);
+                    //Toast.makeText(getApplicationContext(),"Wait for Shen Tong- under construction :)",Toast.LENGTH_SHORT).show();
+                    // Send an email below
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                            "mailto","abc@gmail.com", null));
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                    return true;
+                }
+                else if(id==R.id.nav_reminder) {
+                    //Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("557"));dooe not work without setdata
+                    //startActivity(intent);
+                    //return true;
+                    Intent intent = new Intent(UserActivity.this, ReminderActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                // Starts the customer service page
+                else if(id==R.id.nav_Customerserv) {
+                   // Intent intent = new Intent(UserActivity.this, MainActivity.class);
+                   //Toast.makeText(getActivity(), "This is my Toast message!",
+                            //Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Wait for Shen Tong- under construction :)",Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                // menubar function when pressed calls doctor
+                else if(id==R.id.nav_calldoctor) {
+                    //Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("557"));dooe not work without setdata
+                    //startActivity(intent);
+                    //return true;
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:555"));
+                    startActivity(intent);
+                }
+                // menubar function when emergency call
+                else if(id==R.id.nav_emergcall) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:555"));
+                    startActivity(intent);
+                    return true;
+                }
+                // menubar function when signout clicked
+                else if(id==R.id.nav_signout) {
+                    Intent intent = new Intent(UserActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;
                 }
 
-                
                 return true;
             }
         });

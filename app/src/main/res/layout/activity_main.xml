@@ -29,9 +29,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-Your faithful medical assisant-"
+        android:fontFamily="@font/acme"
+        android:text="Your faithful medical assisant"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,7 +53,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_slogan" />
+        app:srcCompat="@mipmap/logo" />
 
     <Button
         android:id="@+id/button_login"

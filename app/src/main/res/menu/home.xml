@@ -7,24 +7,31 @@
         android:menuCategory="alternative">
         <item
             android:id="@+id/nav_personaldata"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_myinfo"
             android:title="Personal data" />
         <item
             android:id="@+id/nav_Customerserv"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_work_24"
             android:title="Customer service" />
         <item
             android:id="@+id/nav_message"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_baseline_message_24"
             android:title="Message" />
         <item
+            android:id="@+id/nav_reminder"
+            android:icon="@drawable/ic_reminder"
+            android:title="Reminder" />
+        <item
             android:id="@+id/nav_calldoctor"
+            android:icon="@drawable/ic_baseline_local_phone_24"
             android:title="Call family doctor" />
         <item
             android:id="@+id/nav_emergcall"
+            android:icon="@drawable/ic_baseline_local_hospital_24"
             android:title="Emergency call" />
         <item
             android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_baseline_call_missed_outgoing_24"
             android:title="Sign out" />
     </group>
 
