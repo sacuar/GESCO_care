@@ -61,12 +61,12 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
 
                 // Set Alarm
                 alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
-                Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Reminder is set!", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.cancelBtn:
                 alarmManager.cancel(pendingIntent);
-                Toast.makeText(this, "Canceled.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Reminder Canceled.", Toast.LENGTH_SHORT).show();
                 break;
         }
 
