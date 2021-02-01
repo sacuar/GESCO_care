@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class UserActivity extends AppCompatActivity {
+public class User_PatientActivity extends AppCompatActivity {
 
 
 
@@ -42,29 +42,39 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_user_patient);
 
         Button button_reminds = (Button) findViewById(R.id.button_reminder);
         button_reminds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this, ReminderActivity.class);
+                Intent intent = new Intent(User_PatientActivity.this, ReminderActivity.class);
                 startActivity(intent);
             }
         });
+
+        Button button_alarm = (Button) findViewById(R.id.button_testalarm);
+        button_alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_PatientActivity.this, TestAlarmActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button button_medi = (Button) findViewById(R.id.button_Medication);
         button_medi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this, MedicationActivity.class);
+                Intent intent = new Intent(User_PatientActivity.this, MedicationActivity.class);
                 startActivity(intent);
             }
         });
 
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_patient);
         setSupportActionBar(toolbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBar actionBar = getSupportActionBar();
@@ -74,7 +84,7 @@ public class UserActivity extends AppCompatActivity {
         }
 
 
-        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navView = (NavigationView) findViewById(R.id.nav_view_patient);
 
 
 
@@ -86,7 +96,7 @@ public class UserActivity extends AppCompatActivity {
 
                 int id = item.getItemId();
                 if(id==R.id.nav_personaldata){
-                Intent intent = new Intent(UserActivity.this, PersonalData.class);
+                Intent intent = new Intent(User_PatientActivity.this, PersonalData.class);
                 startActivity(intent);
                 return true;
                 }
@@ -107,7 +117,7 @@ public class UserActivity extends AppCompatActivity {
                     //Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("557"));dooe not work without setdata
                     //startActivity(intent);
                     //return true;
-                    Intent intent = new Intent(UserActivity.this, ReminderActivity.class);
+                    Intent intent = new Intent(User_PatientActivity.this, ReminderActivity.class);
                     startActivity(intent);
                     return true;
                 }
@@ -137,7 +147,7 @@ public class UserActivity extends AppCompatActivity {
                 }
                 // menubar function when signout clicked
                 else if(id==R.id.nav_signout) {
-                    Intent intent = new Intent(UserActivity.this, MainActivity.class);
+                    Intent intent = new Intent(User_PatientActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;
                 }

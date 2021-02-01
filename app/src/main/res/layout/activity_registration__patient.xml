@@ -128,7 +128,7 @@
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Emergency Contack" />
+                android:hint="Emergency Contack" />
 
             <Button
                 android:id="@+id/button5"
