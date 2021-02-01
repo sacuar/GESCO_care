@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "261102029387",
+    "project_id": "gesco-last-8e055",
+    "storage_bucket": "gesco-last-8e055.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261102029387:android:c04f3b05ed15a5a02f9bce",
+        "android_client_info": {
+          "package_name": "com.example.gesco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261102029387-hf7kna7fvn0gksmqo554r8ojoahjelg3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gesco",
+            "certificate_hash": "588f9e5168991a0cf656a8c2c005bbcc160a4ef4"
+          }
+        },
+        {
+          "client_id": "261102029387-fsdefq9aam0u6ejv3do73uuohroel2k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6PC-g5M0RMUrZDoh2PwHelZ_bBHvxlt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261102029387-fsdefq9aam0u6ejv3do73uuohroel2k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
