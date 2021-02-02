@@ -18,8 +18,8 @@ public class Registration_DoctorActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Registration_DoctorActivity.this, Registration_FinishedDoctorActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Registration_DoctorActivity.this, Registration_FinishedDoctorActivity.class);
+//                startActivity(intent);
             }
         });
 

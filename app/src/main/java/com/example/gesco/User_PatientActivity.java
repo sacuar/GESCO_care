@@ -13,19 +13,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class User_PatientActivity extends AppCompatActivity {
 
-
-
-
-
     private DrawerLayout mDrawerLayout;
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -43,6 +37,8 @@ public class User_PatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_patient);
+
+        String userToken = getIntent().getStringExtra("USER_TOKEN");
 
         Button button_reminds = (Button) findViewById(R.id.button_reminder);
         button_reminds.setOnClickListener(new View.OnClickListener() {
@@ -72,8 +68,6 @@ public class User_PatientActivity extends AppCompatActivity {
             }
         });
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_patient);
         setSupportActionBar(toolbar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -83,11 +77,7 @@ public class User_PatientActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
         }
 
-
         NavigationView navView = (NavigationView) findViewById(R.id.nav_view_patient);
-
-
-
 
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
@@ -96,7 +86,10 @@ public class User_PatientActivity extends AppCompatActivity {
 
                 int id = item.getItemId();
                 if(id==R.id.nav_personaldata){
-                Intent intent = new Intent(User_PatientActivity.this, PersonalData.class);
+                Intent intent = new Intent(User_PatientActivity.this, PersonalDataActivity.class);
+
+                intent.putExtra("USER_TOKEN", userToken);
+
                 startActivity(intent);
                 return true;
                 }
