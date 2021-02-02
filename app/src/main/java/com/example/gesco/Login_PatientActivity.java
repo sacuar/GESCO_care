@@ -5,9 +5,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.gesco.inputtypes.LoginRequest;
+import com.example.gesco.outputtypes.APIError;
+import com.example.gesco.outputtypes.LoginResponse;
+import com.example.gesco.utils.ErrorHandler;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login_PatientActivity extends AppCompatActivity {
 
@@ -16,7 +29,8 @@ public class Login_PatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_patient);
 
-
+        EditText usernameOrEmailField = ((EditText)findViewById(R.id.editTextLoginUsernameOrEmail));
+        EditText passwordField = ((EditText)findViewById(R.id.editTextLoginPassword));
 
         ImageButton button_ques =(ImageButton) findViewById(R.id.button_question);
         button_ques.setOnClickListener(new View.OnClickListener() {
@@ -40,41 +54,40 @@ public class Login_PatientActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_PatientActivity.this, User_PatientActivity.class);
-                startActivity(intent);
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("https://gesco-backend.herokuapp.com/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                DatabaseAPI dbApi = retrofit.create(DatabaseAPI.class);
+
+                Call<LoginResponse> loginCall = dbApi.login(new LoginRequest(usernameOrEmailField.getText().toString(), passwordField.getText().toString())); // replace hardcoded values for user inputs
+
+                loginCall.enqueue(new Callback<LoginResponse>() {
+                    @Override
+                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                        if (!response.isSuccessful()) {
+                            APIError err = ErrorHandler.parseError(response);
+                            String errorMessage = err.message();
+                            // display error message
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                        } else {
+                            String token = response.body().getToken();
+
+                            Intent intent = new Intent(Login_PatientActivity.this, User_PatientActivity.class);
+                            intent.putExtra("USER_TOKEN", token);
+
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<LoginResponse> call, Throwable t) {
+                        String errorMessage = t.getMessage();
+                        // display error message
+                        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
-
-        // THE CODE FOR LOGGING IN
-        // should be called inside the login submit handler
-
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("https://gesco-backend.herokuapp.com/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//        DatabaseAPI dbApi = retrofit.create(DatabaseAPI.class);
-//
-//        Call<LoginResponse> loginCall = dbApi.login(new LoginRequest("tommy12", "tommy12")); // replace hardcoded values for user inputs
-//
-//        loginCall.enqueue(new Callback<LoginResponse>() {
-//            @Override
-//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-//                if (!response.isSuccessful()) {
-//                    APIError err = ErrorHandler.parseError(response);
-//                    String errorMessage = err.message();
-//                    // display error message somewhere
-//                } else {
-//                    String token = response.body().getToken();
-//                    // do something with the token
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<LoginResponse> call, Throwable t) {
-//                String errorMessage = t.getMessage();
-//                // display error message somewhere
-//            }
-//        });
-
     }
 }

@@ -15,7 +15,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class PersonalData extends AppCompatActivity {
+public class PersonalDataActivity extends AppCompatActivity {
     private TextView textViewResult;
 
     @Override
@@ -24,13 +24,15 @@ public class PersonalData extends AppCompatActivity {
         setContentView(R.layout.activity_personal_data);
         textViewResult = findViewById(R.id.text_view_result);
 
+        String userToken = getIntent().getStringExtra("USER_TOKEN");
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://gesco-backend.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         DatabaseAPI dbApi = retrofit.create(DatabaseAPI.class);
 
-        Call<MeResponse> meCall = dbApi.me("1611916993321");
+        Call<MeResponse> meCall = dbApi.me(userToken);
 
         meCall.enqueue(new Callback<MeResponse>() {
             @Override

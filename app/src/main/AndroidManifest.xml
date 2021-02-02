@@ -18,9 +18,8 @@
         android:icon="@mipmap/logo_slogan"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Registration_FinishedDoctorActivity"></activity>
-        <activity android:name=".Registration_FinishedPatientActivity" />
         <activity android:name=".Registration_DoctorActivity" />
         <activity android:name=".Registration_PatientActivity" />
         <activity android:name=".Registration_SelectActivity" />
@@ -28,11 +27,10 @@
         <activity android:name=".Login_DoctorActivity" />
         <activity android:name=".TestAlarmActivity" />
         <activity android:name=".Login_SelectActivity" />
-        <activity android:name=".PersonalData" />
+        <activity android:name=".PersonalDataActivity" />
         <activity android:name=".MedicationActivity" />
         <activity android:name=".ReminderActivity" />
         <activity android:name=".User_PatientActivity" />
-        <activity android:name=".RegistrationActivity" />
         <activity android:name=".Login_PatientActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
