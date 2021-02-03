@@ -3,6 +3,8 @@ package com.example.gesco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.gesco.outputtypes.APIError;
@@ -18,11 +20,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PersonalDataActivity extends AppCompatActivity {
     private TextView textViewResult;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_data);
+
+        Button button_back = (Button) findViewById(R.id.button_back_pd);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+
+
         textViewResult = findViewById(R.id.text_view_result);
+
 
         String userToken = getIntent().getStringExtra("USER_TOKEN");
 
@@ -43,10 +59,12 @@ public class PersonalDataActivity extends AppCompatActivity {
                 } else {
                     MeResponse userData = response.body();
                     textViewResult.setText(
-                            "Id: " + userData.getId() + '\n' +
-                                    "Username: " + userData.getUsername() + '\n' +
-                                    "Email: " + userData.getEmail()
+                            "Id: " +'\n'+ userData.getId() + '\n' +'\n'+
+                                    "Username: " +'\n'+ userData.getUsername() +'\n'+ '\n' +
+                                    "Email: "+'\n' + userData.getEmail()
                     );
+
+
                 }
             }
 

@@ -60,7 +60,7 @@ public class Registration_PatientActivity extends AppCompatActivity {
                         } else {
                             String token = response.body().getToken();
                             // do something with the token
-                            Intent intent = new Intent(Registration_PatientActivity.this, User_PatientActivity.class);
+                            Intent intent = new Intent(Registration_PatientActivity.this, Registration_FinishedPatientActivity.class);
                             intent.putExtra("USER_TOKEN", token);
 
                             startActivity(intent);

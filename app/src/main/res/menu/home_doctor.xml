@@ -7,19 +7,21 @@
         android:menuCategory="alternative">
 
         <item
-            android:id="@+id/nav_Customerserv"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_Customerserv_do"
+            android:icon="@drawable/ic_baseline_work_24"
             android:title="Customer service" />
         <item
             android:id="@+id/nav_upload"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@android:drawable/ic_menu_upload"
             android:title="Upload doctor certification" />
         <item
             android:id="@+id/nav_feedback"
+            android:icon="@android:drawable/ic_menu_revert"
             android:title="Give feedback" />
 
         <item
             android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_baseline_call_missed_outgoing_24"
             android:title="Sign out" />
     </group>
 

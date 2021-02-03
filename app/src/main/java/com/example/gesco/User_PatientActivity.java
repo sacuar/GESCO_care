@@ -116,10 +116,9 @@ public class User_PatientActivity extends AppCompatActivity {
                 }
                 // Starts the customer service page
                 else if(id==R.id.nav_Customerserv) {
-                   // Intent intent = new Intent(UserActivity.this, MainActivity.class);
-                   //Toast.makeText(getActivity(), "This is my Toast message!",
-                            //Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(),"Wait for Shen Tong- under construction :)",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(User_PatientActivity.this, CustomerServiceActivity.class);
+
+                    startActivity(intent);
                     return true;
                 }
                 // menubar function when pressed calls doctor
@@ -140,6 +139,7 @@ public class User_PatientActivity extends AppCompatActivity {
                 }
                 // menubar function when signout clicked
                 else if(id==R.id.nav_signout) {
+                    finish();
                     Intent intent = new Intent(User_PatientActivity.this, MainActivity.class);
                     startActivity(intent);
                     return true;

@@ -38,7 +38,7 @@ public class User_DoctorActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_launcher_foreground);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
         }
 
 
@@ -51,6 +51,35 @@ public class User_DoctorActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
+                if(id==R.id.nav_Customerserv_do){
+                    Intent intent = new Intent(User_DoctorActivity.this, CustomerServiceActivity.class);
+
+                    startActivity(intent);
+                    return true;
+                }
+                else if(id==R.id.nav_upload) {
+                    //Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("557"));dooe not work without setdata
+                    //startActivity(intent);
+                    //return true;
+                    Intent intent = new Intent(User_DoctorActivity.this, UploadDocumentActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+
+                else if(id==R.id.nav_feedback) {
+                    //Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("557"));dooe not work without setdata
+                    //startActivity(intent);
+                    //return true;
+                    Intent intent = new Intent(User_DoctorActivity.this, FeedbackActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                else if(id==R.id.nav_signout) {
+                    finish();
+                    Intent intent = new Intent(User_DoctorActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
 
 
 
