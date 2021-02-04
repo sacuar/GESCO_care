@@ -49,14 +49,7 @@ public class User_PatientActivity extends AppCompatActivity {
             }
         });
 
-        Button button_alarm = (Button) findViewById(R.id.button_testalarm);
-        button_alarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(User_PatientActivity.this, TestAlarmActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
         Button button_medi = (Button) findViewById(R.id.button_Medication);

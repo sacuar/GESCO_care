@@ -29,7 +29,6 @@
         <activity android:name=".Registration_SelectActivity" />
         <activity android:name=".User_DoctorActivity" />
         <activity android:name=".Login_DoctorActivity" />
-        <activity android:name=".TestAlarmActivity" />
         <activity android:name=".Login_SelectActivity" />
         <activity android:name=".PersonalDataActivity" />
         <activity android:name=".MedicationActivity" />
