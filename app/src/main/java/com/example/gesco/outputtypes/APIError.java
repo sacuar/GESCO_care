@@ -3,8 +3,6 @@ package com.example.gesco.outputtypes;
 public class APIError {
     private String message;
 
-    public APIError() { }
-
     public APIError(String message) {
         this.message = message;
     }

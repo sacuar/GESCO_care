@@ -31,6 +31,10 @@ public class Registration_PatientActivity extends AppCompatActivity {
         EditText emailField = ((EditText)findViewById(R.id.editTextRegisterEmail));
         EditText passwordField = ((EditText)findViewById(R.id.editTextRegisterPassword));
         EditText passwordRepeatedField = ((EditText)findViewById(R.id.editTextRegisterPasswordRepeated));
+        EditText familyDoctorNameField = ((EditText)findViewById(R.id.editTextRegisterFamilyDoctorName));
+        EditText familyDoctorEmailField = ((EditText)findViewById(R.id.editTextRegisterFamilyDoctorEmail));
+        EditText phoneField = ((EditText)findViewById(R.id.editTextRegisterPhone));
+        EditText emergencyPhoneField = ((EditText)findViewById(R.id.editTextRegisterEmergencyPhone));
 
         Button button1 = (Button) findViewById(R.id.button5);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -42,12 +46,22 @@ public class Registration_PatientActivity extends AppCompatActivity {
                         .build();
                 DatabaseAPI dbApi = retrofit.create(DatabaseAPI.class);
 
-                if(passwordField.getText().toString() != passwordRepeatedField.getText().toString()){
+                if(!passwordField.getText().toString().equals(passwordRepeatedField.getText().toString())){
                     Toast.makeText(getApplicationContext(), "password does not match", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), passwordField.getText().toString() + " " + passwordRepeatedField.getText().toString(), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                Call<RegisterResponse> registerCall = dbApi.register(new RegisterRequest(usernameField.getText().toString(), emailField.getText().toString(), passwordField.getText().toString()));
+                Call<RegisterResponse> registerCall = dbApi.register(new RegisterRequest(
+                        usernameField.getText().toString(),
+                        emailField.getText().toString(),
+                        familyDoctorNameField.getText().toString(),
+                        familyDoctorEmailField.getText().toString(),
+                        phoneField.getText().toString(),
+                        emergencyPhoneField.getText().toString(),
+                        passwordField.getText().toString(),
+                        "patient"
+                ));
 
                 registerCall.enqueue(new Callback<RegisterResponse>() {
                     @Override
@@ -59,9 +73,12 @@ public class Registration_PatientActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                         } else {
                             String token = response.body().getToken();
-                            // do something with the token
-                            Intent intent = new Intent(Registration_PatientActivity.this, Registration_FinishedPatientActivity.class);
+                            String role = response.body().getRole();
+
+                            // do something with the token and role
+                            Intent intent = new Intent(Registration_PatientActivity.this, User_PatientActivity.class);
                             intent.putExtra("USER_TOKEN", token);
+                            intent.putExtra("USER_ROLE", role);
 
                             startActivity(intent);
                         }

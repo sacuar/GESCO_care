@@ -72,9 +72,11 @@ public class Login_PatientActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                         } else {
                             String token = response.body().getToken();
+                            String role = response.body().getRole();
 
                             Intent intent = new Intent(Login_PatientActivity.this, User_PatientActivity.class);
                             intent.putExtra("USER_TOKEN", token);
+                            intent.putExtra("USER_ROLE", role);
 
                             startActivity(intent);
                         }

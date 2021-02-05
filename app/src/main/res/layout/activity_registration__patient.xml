@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Registration as Patient"
+                android:text="Patient Registration"
                 android:textSize="24sp" />
 
             <EditText
@@ -65,7 +65,7 @@
                 android:hint="Email" />
 
             <EditText
-                android:id="@+id/Re_Pa_text3"
+                android:id="@+id/editTextRegisterFamilyDoctorName"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -76,7 +76,7 @@
                 android:hint="Family Doctor Name" />
 
             <EditText
-                android:id="@+id/Re_Pa_text4"
+                android:id="@+id/editTextRegisterFamilyDoctorEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -87,7 +87,7 @@
                 android:hint="Family Doctor Email" />
 
             <EditText
-                android:id="@+id/Re_Pa_text5"
+                android:id="@+id/editTextRegisterPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -116,19 +116,19 @@
                 android:layout_marginTop="40dp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:hint="Repeating Password"
+                android:hint="Reapeat Password"
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/Re_Pa_text8"
+                android:id="@+id/editTextRegisterEmergencyPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Emergency Contack" />
+                android:hint="Emergency Contact"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/button5"

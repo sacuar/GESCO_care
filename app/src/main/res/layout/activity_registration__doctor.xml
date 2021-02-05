@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Registration as Doctor"
+                android:text="Doctor Registration"
                 android:textSize="24sp" />
 
             <EditText
@@ -50,8 +50,8 @@
                 android:layout_marginTop="40dp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Fullname" />
+                android:hint="Username"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/Re_do_text2"
@@ -61,8 +61,8 @@
                 android:layout_marginTop="40dp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Last Name" />
+                android:hint="Email"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/Re_do_text3"
@@ -95,7 +95,7 @@
                 android:layout_marginTop="40dp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:hint="Repeating Password"
+                android:hint="Repeat Password"
                 android:inputType="textPassword" />
 
             <TextView
