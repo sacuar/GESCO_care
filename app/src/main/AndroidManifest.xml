@@ -23,8 +23,6 @@
         <activity android:name=".UploadDocumentActivity" />
         <activity android:name=".CustomerServiceActivity" />
         <activity android:name=".Registration_DoctorActivity" />
-        <activity android:name=".Registration_FinishedPatientActivity" />
-        <activity android:name=".Registration_FinishedDoctorActivity" />
         <activity android:name=".Registration_PatientActivity" />
         <activity android:name=".Registration_SelectActivity" />
         <activity android:name=".User_DoctorActivity" />

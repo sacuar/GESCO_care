@@ -59,9 +59,13 @@ public class PersonalDataActivity extends AppCompatActivity {
                 } else {
                     MeResponse userData = response.body();
                     textViewResult.setText(
-                            "Id: " +'\n'+ userData.getId() + '\n' +'\n'+
+                                    "Id: " +'\n'+ userData.getId() + '\n' +'\n'+
                                     "Username: " +'\n'+ userData.getUsername() +'\n'+ '\n' +
-                                    "Email: "+'\n' + userData.getEmail()
+                                    "Email: "+'\n' + userData.getEmail() +'\n'+ '\n' +
+                                    "Family Doctor Name: "+'\n' + userData.getFamilyDoctorName() +'\n'+ '\n' +
+                                    "Family Doctor Email: "+'\n' + userData.getFamilyDoctorEmail() +'\n'+ '\n' +
+                                    "Phone: "+'\n' + userData.getPhone() +'\n'+ '\n' +
+                                    "Emergency Phone: "+'\n' + userData.getEmergencyPhone()
                     );
 
 

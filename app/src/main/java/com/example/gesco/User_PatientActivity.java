@@ -39,6 +39,7 @@ public class User_PatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_patient);
 
         String userToken = getIntent().getStringExtra("USER_TOKEN");
+        String userRole = getIntent().getStringExtra("USER_ROLE");
 
         Button button_reminds = (Button) findViewById(R.id.button_reminder);
         button_reminds.setOnClickListener(new View.OnClickListener() {
