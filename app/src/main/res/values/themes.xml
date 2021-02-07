@@ -13,6 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="SplashTheme" parent="Theme.GESCO">
+        <item name="android:windowBackground">@mipmap/logo_care</item>
+    </style>
 
     <style name="Theme.GESCO.Fullscreen" parent="Theme.GESCO">
         <item name="android:actionBarStyle">@style/Widget.Theme.GESCO.ButtonBar.Fullscreen</item>

@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button_feedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"

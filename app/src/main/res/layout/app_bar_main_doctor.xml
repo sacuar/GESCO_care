@@ -8,13 +8,12 @@
     tools:context=".User_PatientActivity">
 
 
-
     <TextView
         android:id="@+id/textView_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
-        android:text="-Your faithful medical assisant-"
+        android:text="Your faithful medical assisant"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +35,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_logo" />
+        app:srcCompat="@mipmap/logo_care" />
 
 
 

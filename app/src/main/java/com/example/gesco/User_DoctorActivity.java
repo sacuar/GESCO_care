@@ -8,8 +8,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -31,6 +36,33 @@ public class User_DoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_doctor);
+        Button button_mymessage =(Button) findViewById(R.id.button_mymessage);
+        button_mymessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Taking you to messages", Toast.LENGTH_LONG).show();
+                Intent whatsappIntent = new Intent(Intent.ACTION_VIEW);
+                whatsappIntent.setType("text/plain");
+                whatsappIntent.setData(Uri.parse("https://chat.whatsapp.com/LfgCvt5vhxpKLym2N2M1Zi"));
+                whatsappIntent.setPackage("com.whatsapp");
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, "The text you wanted to share");
+                try {
+                    startActivity(whatsappIntent);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(getApplicationContext(), "Whatsapp not available", Toast.LENGTH_LONG).show();
+                }
+                //intent.setData(Uri.parse("http://www.goolge.com"));
+             //   startActivity(intent);
+            }
+        });
+        Button button_mypatient =(Button) findViewById(R.id.button_mypatient);
+        button_mypatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), "No Patients are available at the moment", Toast.LENGTH_LONG).show();
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_doctor);
         setSupportActionBar(toolbar);
